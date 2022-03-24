@@ -1,6 +1,5 @@
 const router = require("express").Router();
 require("../db/conn");
-const { ObjectId } = require("mongoose");
 const Note = require("../model/userSchema");
 const Delete = require("../model/deleteSchema");
 

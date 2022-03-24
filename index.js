@@ -25,11 +25,13 @@ mongoose
 const postuser = require("./router/postUser");
 const deleteuser = require("./router/DeleteUser");
 const getDeletedData = require("./router/getdelete");
+const deleted = require("./router/Deleted");
 
 // app.use("/getuser", getuser);
 app.use("/postuser", postuser);
 app.use("/deleteuser", deleteuser);
 app.use("/getdelete", getDeletedData);
+app.use("/deleted", deleted);
 
 app.get("/", (req, res) => {
   res.send("My Home page");
