@@ -4,11 +4,22 @@ const cors = require("cors");
 const Port = process.env.PORT || 5000;
 const Note = require("./model/userSchema");
 const app = express();
+const mongoose = require("mongoose");
+const DB = process.env.DATABASE;
 
 app.use(express.json());
 app.use(cors());
 
-require("./db/conn");
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+
+    // serverSelectionTimeoutMS: 100000,
+  })
+  .then(() => {
+    console.log("connection successful");
+  })
+  .catch((err) => console.log("no connection"));
 
 // const getuser = require("./router/getUser");
 const postuser = require("./router/postUser");
